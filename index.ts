@@ -1,4 +1,5 @@
 console.clear();
+
 // const variable: string = "This is a String";
 
 // console.log(variable);
@@ -111,12 +112,12 @@ projectAssigned = Boolean(424243);
 
 // console.log(projectAssigned);
 
-function fn(n: number, toFixed?: number) {
+function fn1(n: number, toFixed?: number) {
   console.log(n.toFixed(toFixed || 2));
 }
 
-// fn(123.12343, 3);
-// fn(123.12343);
+// fn1(123.12343, 3);
+// fn1(123.12343);
 
 let val1: any = "Value 1";
 val1 = 213;
@@ -213,8 +214,8 @@ function OptionalParams(firstName: string, lastName: string, age?: number) {
   }
 }
 
-OptionalParams("Prof M", "Faisal", 1000);
-OptionalParams("Prof M", "Zeeshan");
+// OptionalParams("Prof M", "Faisal", 1000);
+// OptionalParams("Prof M", "Zeeshan");
 
 interface Shape {
   dimensions: number;
@@ -228,3 +229,195 @@ interface Circle extends Shape {
 function greet(name: string) {
   console.log("Hello, " + name.toUpperCase() + "!!");
 }
+
+function printArray(str: string | string[] | null) {
+  if (str instanceof Array) {
+    console.log("This is an instance of Array");
+    str.map((item) => console.log(item));
+  } else if (typeof str === "string") {
+    console.log("Its a String");
+  } else {
+    console.log("Its Null");
+  }
+}
+
+const positions: string[] = ["first", "second", "third", "forth"];
+
+// printArray(positions);
+// printArray("This is a String");
+// printArray(null);
+
+const var1 = 0 || "String";
+// console.log(var1);
+
+const var2 = 5 < 4 || "Intialized as String";
+// console.log(var2);
+
+const college: {
+  name: string;
+  foundedYear: number;
+  totalStudents: number;
+  isCertified: Boolean;
+} = {
+  name: "IMCB H-9",
+  foundedYear: 1998,
+  totalStudents: 3500,
+  isCertified: true,
+};
+
+// console.log(college);
+
+type collegeKeys = keyof typeof college;
+
+interface university {
+  name: string;
+  noOfDepartments: number;
+  totalTeacher: number;
+  hecCertified: boolean;
+}
+
+const quiadeAzam: university = {
+  name: "Quiad-e-Azam University",
+  noOfDepartments: 40,
+  totalTeacher: 700,
+  hecCertified: true,
+};
+
+// console.log(quiadeAzam);
+
+class Account {
+  name: string;
+  password: string;
+  age: number;
+  hasRetired: boolean;
+
+  public constructor(
+    name: string,
+    password: string,
+    age: number,
+    hasRetired: boolean
+  ) {
+    this.name = name;
+    this.password = password;
+    this.age = age;
+    this.hasRetired = hasRetired;
+  }
+
+  getDetails(): void {
+    console.log(`Hello Mr.${this.name} Age: ${this.age}`);
+  }
+}
+
+const scbAccount = new Account("Ahmed", "tecklogics@2025", 22, false);
+
+// console.log(scbAccount);
+// scbAccount.getDetails();
+
+class Circle {
+  radius: number;
+  PI = Math.PI;
+  constructor(radius: number) {
+    this.radius = radius;
+  }
+  getCircumference(): void {
+    console.log(`Radius: ${2 * this.PI * this.radius}`);
+  }
+  getArea(): void {
+    console.log(`Area: ${this.PI * this.radius * this.radius}`);
+  }
+}
+
+const circle1 = new Circle(10);
+// console.log(circle1);
+// circle1.getArea();
+// circle1.getCircumference();
+
+const diffTypeArr: (string | number)[] = [1, "1", 2, "2"];
+
+// for (const ele of diffTypeArr) [console.log(ele)];
+
+interface person {
+  name: string;
+}
+interface person {
+  id: number;
+}
+
+const ahmed: person = {
+  name: "ahmed",
+  id: 34,
+};
+
+// console.log(ahmed);
+
+type mouse = {
+  company: string;
+  warranty?: number;
+};
+
+const tuuins: mouse = {
+  company: "Tunins",
+  warranty: 4,
+};
+
+// console.log(tuuins);
+
+class accessSpecifiers {
+  private id: number | string;
+  private url = "OPENAI.COM/API/KEY/NEWKEY/SDF42BK234";
+
+  #secretUrl: string = "This is a secret url string";
+
+  constructor(id: number | string) {
+    this.id = id;
+  }
+
+  getSecretUrl(): string {
+    return this.#secretUrl;
+  }
+  setSecretUrl(url: string): void {
+    this.#secretUrl = url;
+  }
+}
+
+const testing = new accessSpecifiers("10");
+
+// console.log(testing.id ? "Accessable" : "Not Accessable");
+// console.log(testing.API_KEY ? "Accessable" : "Not Accessable");
+// console.log(testing.API_KEY);
+
+// console.log(testing.getSecretUrl());
+// testing.setSecretUrl("New Secret Key in Class");
+// console.log(testing.getSecretUrl());
+
+function failure(msg: string): never {
+  throw new Error(msg);
+}
+
+// failure("Please give your full-name");
+
+let fullName: string = "First Last Name";
+
+type uuid = number;
+
+const myId: uuid = 234;
+
+// console.log(myId);
+
+function print<T>(value: T) {
+  console.log(value);
+}
+print("String"); // Accepts String
+print(12); // Accepts Number
+print(false); // Accepts Boolean
+
+let randomType: any = "Variable";
+console.log(typeof randomType);
+randomType = 23;
+console.log(typeof randomType);
+
+function errMsg(err: string): never {
+  throw new Error(err);
+}
+
+// errMsg("Name Required");
