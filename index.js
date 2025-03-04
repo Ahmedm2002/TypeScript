@@ -1,3 +1,14 @@
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -7,6 +18,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
+var _accessSpecifiers_secretUrl;
 console.clear();
 // const variable: string = "This is a String";
 // console.log(variable);
@@ -69,11 +81,11 @@ var p1 = { x: 213.432, y: 12.234, z: 432.123 };
 var projectAssigned;
 projectAssigned = Boolean(424243);
 // console.log(projectAssigned);
-function fn(n, toFixed) {
+function fn1(n, toFixed) {
     console.log(n.toFixed(toFixed || 2));
 }
-// fn(123.12343, 3);
-// fn(123.12343);
+// fn1(123.12343, 3);
+// fn1(123.12343);
 var val1 = "Value 1";
 val1 = 213;
 // console.log(val1);
@@ -130,8 +142,124 @@ function OptionalParams(firstName, lastName, age) {
         console.log("Hy Mr.".concat(firstName, " ").concat(lastName, " Age: ").concat(age, " years"));
     }
 }
-OptionalParams("Prof M", "Faisal", 1000);
-OptionalParams("Prof M", "Zeeshan");
 function greet(name) {
     console.log("Hello, " + name.toUpperCase() + "!!");
 }
+function printArray(str) {
+    if (str instanceof Array) {
+        console.log("This is an instance of Array");
+        str.map(function (item) { return console.log(item); });
+    }
+    else if (typeof str === "string") {
+        console.log("Its a String");
+    }
+    else {
+        console.log("Its Null");
+    }
+}
+var positions = ["first", "second", "third", "forth"];
+// printArray(positions);
+// printArray("This is a String");
+// printArray(null);
+var var1 = 0 || "String";
+// console.log(var1);
+var var2 = 5 < 4 || "Intialized as String";
+// console.log(var2);
+var college = {
+    name: "IMCB H-9",
+    foundedYear: 1998,
+    totalStudents: 3500,
+    isCertified: true,
+};
+var quiadeAzam = {
+    name: "Quiad-e-Azam University",
+    noOfDepartments: 40,
+    totalTeacher: 700,
+    hecCertified: true,
+};
+// console.log(quiadeAzam);
+var Account = /** @class */ (function () {
+    function Account(name, password, age, hasRetired) {
+        this.name = name;
+        this.password = password;
+        this.age = age;
+        this.hasRetired = hasRetired;
+    }
+    Account.prototype.getDetails = function () {
+        console.log("Hello Mr.".concat(this.name, " Age: ").concat(this.age));
+    };
+    return Account;
+}());
+var scbAccount = new Account("Ahmed", "tecklogics@2025", 22, false);
+// console.log(scbAccount);
+// scbAccount.getDetails();
+var Circle = /** @class */ (function () {
+    function Circle(radius) {
+        this.PI = Math.PI;
+        this.radius = radius;
+    }
+    Circle.prototype.getCircumference = function () {
+        console.log("Radius: ".concat(2 * this.PI * this.radius));
+    };
+    Circle.prototype.getArea = function () {
+        console.log("Area: ".concat(this.PI * this.radius * this.radius));
+    };
+    return Circle;
+}());
+var circle1 = new Circle(10);
+// console.log(circle1);
+// circle1.getArea();
+// circle1.getCircumference();
+var diffTypeArr = [1, "1", 2, "2"];
+var ahmed = {
+    name: "ahmed",
+    id: 34,
+};
+var tuuins = {
+    company: "Tunins",
+    warranty: 4,
+};
+// console.log(tuuins);
+var accessSpecifiers = /** @class */ (function () {
+    function accessSpecifiers(id) {
+        this.url = "OPENAI.COM/API/KEY/NEWKEY/SDF42BK234";
+        _accessSpecifiers_secretUrl.set(this, "This is a secret url string");
+        this.id = id;
+    }
+    accessSpecifiers.prototype.getSecretUrl = function () {
+        return __classPrivateFieldGet(this, _accessSpecifiers_secretUrl, "f");
+    };
+    accessSpecifiers.prototype.setSecretUrl = function (url) {
+        __classPrivateFieldSet(this, _accessSpecifiers_secretUrl, url, "f");
+    };
+    return accessSpecifiers;
+}());
+_accessSpecifiers_secretUrl = new WeakMap();
+var testing = new accessSpecifiers("10");
+// console.log(testing.id ? "Accessable" : "Not Accessable");
+// console.log(testing.API_KEY ? "Accessable" : "Not Accessable");
+// console.log(testing.API_KEY);
+// console.log(testing.getSecretUrl());
+// testing.setSecretUrl("New Secret Key in Class");
+// console.log(testing.getSecretUrl());
+function failure(msg) {
+    throw new Error(msg);
+}
+// failure("Please give your full-name");
+var fullName = "First Last Name";
+var myId = 234;
+// console.log(myId);
+function print(value) {
+    console.log(value);
+}
+print("String"); // Accepts String
+print(12); // Accepts Number
+print(false); // Accepts Boolean
+var randomType = "Variable";
+console.log(typeof randomType);
+randomType = 23;
+console.log(typeof randomType);
+function errMsg(err) {
+    throw new Error(err);
+}
+// errMsg("Name Required");
