@@ -41,17 +41,19 @@ const person: Person = {
   available: true,
 };
 
-function greetingMsg(name: string, date: Date) {
-  console.log(`Hy Mr.${name} Today is ${date}`);
+function greetingMsg(name: string) {
+  console.log(`Hy Mr.${name} Today is ${new Date()}`);
 }
 
-// greetingMsg("Ali", new Date());
+greetingMsg("Ali");
 
 enum Signal {
   first = "Red",
   second = "Yellow",
   third = "Green",
 }
+
+// console.log(typeof Signal);
 
 const x: string = Signal.first;
 
@@ -202,9 +204,13 @@ enum library {
 
 // console.log([1, 2, 3, 4] instanceof Array);
 
-// setInterval(() => {
-//   console.log(new Date());
-// }, 1000);
+function clock() {
+  setInterval(() => {
+    console.log(new Date());
+  }, 1000);
+}
+
+// clock();
 
 function OptionalParams(firstName: string, lastName: string, age?: number) {
   if (age === undefined) {
@@ -214,8 +220,8 @@ function OptionalParams(firstName: string, lastName: string, age?: number) {
   }
 }
 
-// OptionalParams("Prof M", "Faisal", 1000);
-// OptionalParams("Prof M", "Zeeshan");
+OptionalParams("Prof M", "Faisal", 1000);
+OptionalParams("Prof M", "Zeeshan");
 
 interface Shape {
   dimensions: number;
@@ -387,7 +393,7 @@ const testing = new accessSpecifiers("10");
 // console.log(testing.API_KEY);
 
 // console.log(testing.getSecretUrl());
-// testing.setSecretUrl("New Secret Key in Class");
+testing.setSecretUrl("New Secret Key in Class");
 // console.log(testing.getSecretUrl());
 
 function failure(msg: string): never {
@@ -404,20 +410,30 @@ const myId: uuid = 234;
 
 // console.log(myId);
 
-function print<T>(value: T) {
+function print<T>(value: T): void {
   console.log(value);
 }
-print("String"); // Accepts String
-print(12); // Accepts Number
-print(false); // Accepts Boolean
+
+// print("String"); // Accepts String
+// print(12); // Accepts Number
+// print(false); // Accepts Boolean
 
 let randomType: any = "Variable";
-console.log(typeof randomType);
+// console.log(typeof randomType);
 randomType = 23;
-console.log(typeof randomType);
+// console.log(typeof randomType);
 
 function errMsg(err: string): never {
   throw new Error(err);
 }
 
 // errMsg("Name Required");
+
+function userInput(value: any) {
+  console.log(typeof value);
+}
+
+// userInput(3);
+// userInput([234, 123, 12]);
+// userInput({ name: "a", b: "B" });
+// userInput("String");
