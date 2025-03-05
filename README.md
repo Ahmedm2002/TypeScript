@@ -11,7 +11,7 @@ Primarily 3 are used
 ## Enums
 
 - Speical class that represents a group of constants
-
+- Allows to create named constants
 - If not mentioned starts from 0
 
   Example:
@@ -145,3 +145,28 @@ function errMsg(err: string):never{
 
 errMsg('Name Required')
 ```
+
+## Optional
+
+Does not shows error if the value is missing
+
+```
+let person: [string, number?, boolean?] = ["Alice", 25];
+```
+
+In above example number and boolean are optional means that if they are not provided it will still run the code and will not throw any error.
+
+## Infer
+
+When typescript guesses the type of the value its called infer
+
+## String Interpolation
+
+Injecting Js Statements or variables inside a string
+
+```
+const name = 'John Doe'
+console.log(`Hello Mr ${name}`)
+```
+
+> _TypeScript's types don't exist at runtime. They're only used to help you catch errors at compile time. This is because TypeScript is designed to compile down to JavaScript, which doesn't have a type system._
