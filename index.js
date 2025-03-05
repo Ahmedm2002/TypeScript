@@ -37,16 +37,17 @@ var person = {
     age: 30,
     available: true,
 };
-function greetingMsg(name, date) {
-    console.log("Hy Mr.".concat(name, " Today is ").concat(date));
+function greetingMsg(name) {
+    console.log("Hy Mr.".concat(name, " Today is ").concat(new Date()));
 }
-// greetingMsg("Ali", new Date());
+greetingMsg("Ali");
 var Signal;
 (function (Signal) {
     Signal["first"] = "Red";
     Signal["second"] = "Yellow";
     Signal["third"] = "Green";
 })(Signal || (Signal = {}));
+// console.log(typeof Signal);
 var x = Signal.first;
 // console.log(x);
 var names = ["first", "second", "third", "forth"];
@@ -131,9 +132,12 @@ var library;
 // const person3 = library.employees;
 // console.log(person3);
 // console.log([1, 2, 3, 4] instanceof Array);
-// setInterval(() => {
-//   console.log(new Date());
-// }, 1000);
+function clock() {
+    setInterval(function () {
+        console.log(new Date());
+    }, 1000);
+}
+// clock();
 function OptionalParams(firstName, lastName, age) {
     if (age === undefined) {
         console.log("Hello Mr.".concat(firstName, " ").concat(lastName));
@@ -142,6 +146,8 @@ function OptionalParams(firstName, lastName, age) {
         console.log("Hy Mr.".concat(firstName, " ").concat(lastName, " Age: ").concat(age, " years"));
     }
 }
+OptionalParams("Prof M", "Faisal", 1000);
+OptionalParams("Prof M", "Zeeshan");
 function greet(name) {
     console.log("Hello, " + name.toUpperCase() + "!!");
 }
@@ -240,7 +246,7 @@ var testing = new accessSpecifiers("10");
 // console.log(testing.API_KEY ? "Accessable" : "Not Accessable");
 // console.log(testing.API_KEY);
 // console.log(testing.getSecretUrl());
-// testing.setSecretUrl("New Secret Key in Class");
+testing.setSecretUrl("New Secret Key in Class");
 // console.log(testing.getSecretUrl());
 function failure(msg) {
     throw new Error(msg);
@@ -252,14 +258,21 @@ var myId = 234;
 function print(value) {
     console.log(value);
 }
-print("String"); // Accepts String
-print(12); // Accepts Number
-print(false); // Accepts Boolean
+// print("String"); // Accepts String
+// print(12); // Accepts Number
+// print(false); // Accepts Boolean
 var randomType = "Variable";
-console.log(typeof randomType);
+// console.log(typeof randomType);
 randomType = 23;
-console.log(typeof randomType);
+// console.log(typeof randomType);
 function errMsg(err) {
     throw new Error(err);
 }
 // errMsg("Name Required");
+function userInput(value) {
+    console.log(typeof value);
+}
+// userInput(3);
+// userInput([234, 123, 12]);
+// userInput({ name: "a", b: "B" });
+// userInput("String");
